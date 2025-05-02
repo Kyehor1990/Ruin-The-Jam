@@ -19,10 +19,13 @@ namespace Mehmet
         {
             if (IsStunned)
             {
+                assignedTable.UnregisterEnemy(this);
+
                 stunTimer -= Time.deltaTime;
                 if (stunTimer <= 0f)
                 {
                     IsStunned = false;
+                    assignedTable.RegisterEnemy(this);
                 }
             }
         }
