@@ -1,38 +1,39 @@
 using UnityEngine;
 using UnityEngine.AI;
+using Mehmet;
 
 public class EnemyChase : MonoBehaviour
 {
-    [SerializeField] Transform player;
-    [SerializeField] float chaseDistance = 10f;
-    [SerializeField] LayerMask obstacleMask;
+    public Transform player;
+    public float chaseDistance = 10f;
+    public LayerMask obstacleMask;
 
     private NavMeshAgent agent;
-    private Vector3 startPosition;
+    private EnemyStunnable stunnable;
 
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
+        stunnable = GetComponent<EnemyStunnable>();
     }
 
     void Update()
     {
+        if (stunnable != null && stunnable.IsStunned())
+        {
+            agent.ResetPath();
+            return;
+        }
+
         float distance = Vector3.Distance(player.position, transform.position);
 
-       if (distance < chaseDistance)
+        if (distance < chaseDistance && CanSeePlayer())
         {
-            if (CanSeePlayer())
-            {
-                agent.SetDestination(player.position);
-            }
-            else
-            {
-                agent.SetDestination(startPosition);
-            }
+            agent.SetDestination(player.position);
         }
         else
         {
-            agent.SetDestination(startPosition);
+            agent.ResetPath();
         }
     }
 
@@ -41,11 +42,6 @@ public class EnemyChase : MonoBehaviour
         Vector3 direction = (player.position - transform.position).normalized;
         float distanceToPlayer = Vector3.Distance(transform.position, player.position);
 
-        if (!Physics.Raycast(transform.position, direction, distanceToPlayer, obstacleMask))
-        {
-            return true;
-        }
-
-        return false;
+        return !Physics.Raycast(transform.position, direction, distanceToPlayer, obstacleMask);
     }
 }
