@@ -10,6 +10,7 @@ public class EnemyChase : MonoBehaviour
 
     private NavMeshAgent agent;
     private EnemyStunnable stunnable;
+    private Vector3 StartPosition;
 
     void Start()
     {
@@ -33,7 +34,7 @@ public class EnemyChase : MonoBehaviour
         }
         else
         {
-            agent.ResetPath();
+            agent.SetDestination(StartPosition);
         }
     }
 
