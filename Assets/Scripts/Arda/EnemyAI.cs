@@ -16,6 +16,7 @@ public class EnemyChase : MonoBehaviour
     {
         agent = GetComponent<NavMeshAgent>();
         stunnable = GetComponent<EnemyStunnable>();
+        StartPosition = transform.position;
     }
 
     void Update()
