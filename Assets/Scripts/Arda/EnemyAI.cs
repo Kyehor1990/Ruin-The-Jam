@@ -8,6 +8,7 @@ public class EnemyChase : MonoBehaviour
     [SerializeField] LayerMask obstacleMask;
 
     private NavMeshAgent agent;
+    private Vector3 startPosition;
 
     void Start()
     {
@@ -26,14 +27,13 @@ public class EnemyChase : MonoBehaviour
             }
             else
             {
-                agent.ResetPath();
+                agent.SetDestination(startPosition);
             }
         }
         else
         {
-            agent.ResetPath();
+            agent.SetDestination(startPosition);
         }
-
     }
 
     bool CanSeePlayer()

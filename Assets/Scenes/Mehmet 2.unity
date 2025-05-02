@@ -229,7 +229,7 @@ GameObject:
   - component: {fileID: 733389291}
   - component: {fileID: 733389290}
   m_Layer: 6
-  m_Name: Obstacle
+  m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -336,7 +336,6 @@ GameObject:
   - component: {fileID: 735296986}
   - component: {fileID: 735296985}
   - component: {fileID: 735296987}
-  - component: {fileID: 735296988}
   m_Layer: 7
   m_Name: Enemy
   m_TagString: Enemy
@@ -444,7 +443,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d4f47a4d8937b64d8499abfc147d6e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 1004115534}
+  player: {fileID: 0}
   chaseDistance: 10
   obstacleMask:
     serializedVersion: 2
@@ -483,23 +482,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b06424fcf6c1eaf478c31ee394180d8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &735296988
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 735296980}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 84d9980133734e240b8eacf7fadd1bfa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!4 &1004115534 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4441741621913158730, guid: dca9833903ba8c74b968e3f6624f846b, type: 3}
-  m_PrefabInstance: {fileID: 1308984903}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1308984903
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -550,10 +532,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7553249672505927580, guid: dca9833903ba8c74b968e3f6624f846b, type: 3}
       propertyPath: m_Name
-      value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 7553249672505927580, guid: dca9833903ba8c74b968e3f6624f846b, type: 3}
-      propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 7706219520206546228, guid: dca9833903ba8c74b968e3f6624f846b, type: 3}
