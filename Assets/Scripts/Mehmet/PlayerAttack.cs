@@ -4,7 +4,7 @@ namespace Mehmet
 {
     public class PlayerAttack : MonoBehaviour
     {
-        public float attackRange = 2f; // Vurma mesafesi
+        public float attackRange = 5f; // Vurma mesafesi
         public float attackCooldown = 1f; // Vuruşlar arası süre
         public LayerMask enemyLayer; // Sadece Enemy katmanı
         public BatAnimator batAnimator; // Animasyon kontrolü
@@ -41,6 +41,11 @@ namespace Mehmet
                 if (hit.collider.TryGetComponent(out EnemyStunnable enemy))
                 {
                     enemy.Stun(2f);
+                }
+
+                if (hit.collider.TryGetComponent(out EnemyWorker enemy2))
+                {
+                    enemy2.Stun2(2f);
                 }
             }
         }
