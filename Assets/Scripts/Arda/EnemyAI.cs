@@ -1,22 +1,31 @@
 using UnityEngine;
 using UnityEngine.AI;
 using Mehmet;
+using System.Collections;
 
 public class EnemyChase : MonoBehaviour
 {
-    public Transform player;
-    public float chaseDistance = 10f;
-    public LayerMask obstacleMask;
+    [SerializeField] Transform player;
+    [SerializeField] float chaseDistance;
+    [SerializeField] LayerMask obstacleMask;
+
+    [SerializeField] float attackDistance;
+    [SerializeField] float attackCooldown;
+    [SerializeField] float attackDelay = 1f;
 
     private NavMeshAgent agent;
     private EnemyStunnable stunnable;
     private Vector3 StartPosition;
+    private float lastAttackTime;
+    private bool isAttacking = false; 
+     private bool isInAttackRange = false;
 
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
         stunnable = GetComponent<EnemyStunnable>();
         StartPosition = transform.position;
+        lastAttackTime = -attackCooldown;
     }
 
     void Update()
@@ -31,7 +40,14 @@ public class EnemyChase : MonoBehaviour
 
         if (distance < chaseDistance && CanSeePlayer())
         {
-            agent.SetDestination(player.position);
+            if (distance <= attackDistance && !isAttacking && Time.time >= lastAttackTime + attackCooldown)
+            {
+                StartCoroutine(WaitBeforeAttack());
+            }
+            else if (!isAttacking)
+            {
+                agent.SetDestination(player.position);
+            }
         }
         else
         {
@@ -45,5 +61,41 @@ public class EnemyChase : MonoBehaviour
         float distanceToPlayer = Vector3.Distance(transform.position, player.position);
 
         return !Physics.Raycast(transform.position, direction, distanceToPlayer, obstacleMask);
+    }
+
+ IEnumerator WaitBeforeAttack()
+    {
+        isAttacking = true;
+        agent.isStopped = true;
+
+        yield return new WaitForSeconds(attackDelay);
+
+        AttackPlayer();
+
+        StartCoroutine(ResumeMovementAfterAttack());
+    }
+
+    void AttackPlayer()
+    {
+        // Saldırı animasyonu
+        Debug.Log("Player attacked!");
+
+        if (Vector3.Distance(player.position, transform.position) <= attackDistance)
+        {
+            PlayerHealth playerHealth = player.GetComponent<PlayerHealth>();
+            if (playerHealth != null)
+            {
+                playerHealth.TakeDamage(20);
+            }
+        }
+
+        lastAttackTime = Time.time;
+    }
+
+    IEnumerator ResumeMovementAfterAttack()
+    {
+        yield return new WaitForSeconds(attackCooldown);
+        agent.isStopped = false;
+        isAttacking = false;
     }
 }
