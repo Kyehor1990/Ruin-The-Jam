@@ -49,7 +49,6 @@ namespace Mehmet
                 bool isRunning = Input.GetKey(KeyCode.LeftShift) && stamina > 0f;
                 float speed = isRunning ? runSpeed : walkSpeed;
                 
-                Debug.Log(stamina);
 
                 controller.Move(moveDir.normalized * speed * Time.deltaTime);
 

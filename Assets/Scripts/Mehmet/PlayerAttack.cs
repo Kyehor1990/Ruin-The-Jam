@@ -4,11 +4,11 @@ namespace Mehmet
 {
     public class PlayerAttack : MonoBehaviour
     {
-        public float attackRange = 2f;
-        public float attackCooldown = 1f;
-        public LayerMask enemyLayer;
-        public BatAnimator batAnimator;
-        public Transform cameraTransform;
+        public float attackRange = 2f; // Vurma mesafesi
+        public float attackCooldown = 1f; // Vuruşlar arası süre
+        public LayerMask enemyLayer; // Sadece Enemy katmanı
+        public BatAnimator batAnimator; // Animasyon kontrolü
+        public Transform cameraTransform; // FPS kamera
 
         private float attackTimer = 0f;
 
@@ -21,18 +21,27 @@ namespace Mehmet
                 attackTimer = 0f;
                 Attack();
             }
+
+            // ✅ Ray'i sahnede çizmek (görsel test için)
+            Debug.DrawRay(cameraTransform.position, cameraTransform.forward * attackRange, Color.red);
         }
 
         void Attack()
         {
+            // 1. Sopayı salla
             if (batAnimator != null)
                 batAnimator.Swing();
 
+            // 2. Ray gönder
             Ray ray = new Ray(cameraTransform.position, cameraTransform.forward);
+
             if (Physics.Raycast(ray, out RaycastHit hit, attackRange, enemyLayer))
             {
+                // 3. Enemy'e stun uygula
                 if (hit.collider.TryGetComponent(out EnemyStunnable enemy))
+                {
                     enemy.Stun(2f);
+                }
             }
         }
     }

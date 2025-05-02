@@ -4,16 +4,14 @@ namespace Mehmet
 {
     public class BatAnimator : MonoBehaviour
     {
-        private Animator animator;
-
-        void Awake()
-        {
-            animator = GetComponent<Animator>();
-        }
+        public Animator animator;
 
         public void Swing()
         {
-            animator.SetTrigger("Swing");
+            if (animator != null)
+            {
+                animator.SetTrigger("Swing");
+            }
         }
     }
 }
