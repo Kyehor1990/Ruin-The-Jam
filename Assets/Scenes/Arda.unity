@@ -605,7 +605,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 4441741620873134605}
-  rotationSpeed: 5
+  rotationSpeed: 20
 --- !u!1 &1526963079
 GameObject:
   m_ObjectHideFlags: 0
