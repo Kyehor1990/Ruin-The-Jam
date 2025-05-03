@@ -13,10 +13,19 @@ namespace Mehmet
         public AudioSource audioSource;
         public AudioClip[] dialogSounds;
 
-
-        [Header("Diyalog Ayarları")]
+        [Header("Birinci Diyalog")]
         [TextArea(2, 5)]
         public string[] dialogLines;
+
+        [Header("İkinci Diyalog")]
+        [TextArea(2, 5)]
+        public string[] secondaryDialogLines;
+        
+        [Header("Üçüncü Diyalog")]
+        [TextArea(2, 5)]
+        public string[] thirtDialogLines;
+
+        [Header("Ayarlar")]
         public float textSpeed = 0.03f;
         public float interactionDistance = 3f;
 
@@ -24,12 +33,17 @@ namespace Mehmet
         private int currentLine = 0;
         private bool isPlayerNear = false;
         private bool isTyping = false;
+        private string[] currentDialog;
+
+        private bool secondaryDialogActive = false;
 
         void Start()
         {
             player = GameObject.FindGameObjectWithTag("Player").transform;
             dialogCanvas.SetActive(false);
             eKeySprite.SetActive(false);
+
+            currentDialog = dialogLines; // Varsayılan birinci diyalog
         }
 
         void Update()
@@ -43,7 +57,6 @@ namespace Mehmet
             else
                 eKeySprite.SetActive(false);
 
-            // E tuşuna basılırsa diyalogu yönet
             if (isPlayerNear && Input.GetKeyDown(KeyCode.E))
             {
                 if (!dialogCanvas.activeSelf)
@@ -55,7 +68,7 @@ namespace Mehmet
                 else if (!isTyping)
                 {
                     currentLine++;
-                    if (currentLine < dialogLines.Length)
+                    if (currentLine < currentDialog.Length)
                     {
                         StartCoroutine(TypeLine());
                     }
@@ -79,8 +92,7 @@ namespace Mehmet
                 audioSource.PlayOneShot(dialogSounds[randomIndex]);
             }
 
-
-            foreach (char c in dialogLines[currentLine])
+            foreach (char c in currentDialog[currentLine])
             {
                 dialogText.text += c;
                 yield return new WaitForSeconds(textSpeed);
@@ -88,5 +100,18 @@ namespace Mehmet
 
             isTyping = false;
         }
+
+        // 🔥 Bu fonksiyonu çağırınca artık ikinci diyalog gösterilecek
+        public void StartSecondaryDialog()
+        {
+            currentDialog = secondaryDialogLines;
+        }
+
+        public void StartThirtDialog()
+        {
+            currentDialog = thirtDialogLines;
+        }
+        
+        
     }
 }

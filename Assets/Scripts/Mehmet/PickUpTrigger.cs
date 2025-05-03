@@ -1,10 +1,18 @@
-using System.Collections;
+    using System.Collections;
 using System.Collections.Generic;
+using Mehmet;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class PickUpTrigger : MonoBehaviour
 {
     public PowerManager powerManager;
+    public ProjectileShooter projectileShooter;
+
+    [Header("Diyalog Ayarları")]
+    public GameObject pokemon;
+
+    public GameObject beer;
     void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
@@ -72,7 +80,7 @@ public class PickUpTrigger : MonoBehaviour
 
     void DoFunctionTwo()
     {
-
+        
     }
 
     void DoFunctionThree()
@@ -83,14 +91,16 @@ public class PickUpTrigger : MonoBehaviour
 
     void DoFunctionFour()
     {
-        Debug.Log("Fonksiyon 4 çağrıldı: Zıplama gücü artır.");
-        // playerJumpPower *= 1.2f;
+        //pokemon pt
+        projectileShooter.SetProjectile(pokemon);
+        
     }
 
     void DoFunctionFive()
     {
-        Debug.Log("Fonksiyon 5 çağrıldı: Zamanı yavaşlat.");
-        // Time.timeScale = 0.5f;
+       //beer pt
+       projectileShooter.SetProjectile(beer);
+       
     }
 
 }
