@@ -70,6 +70,14 @@ public class EnemyChase : MonoBehaviour
 
         yield return new WaitForSeconds(attackDelay);
 
+        if (stunnable != null && stunnable.IsStunned())
+        {
+            Debug.LogError("Enemy is stunned, cannot attack.");
+            agent.isStopped = false;
+            isAttacking = false;
+            yield break;
+        }
+
         AttackPlayer();
 
         StartCoroutine(ResumeMovementAfterAttack());
