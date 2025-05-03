@@ -9,8 +9,9 @@ public class Clock : MonoBehaviour
     [SerializeField] float endTime = 20f;
     [SerializeField] GameObject endingPanel;
     private float currentTime;
-    private float timeToComplete = 240f;
+    [SerializeField] float timeToComplete = 240f;
     private float timeElapsed = 0f;
+    [SerializeField] CompletedTable completedTable;
 
     void Start()
     {
@@ -38,6 +39,7 @@ public class Clock : MonoBehaviour
             timeText.text = "20:00";
             Time.timeScale = 0f;
             endingPanel.SetActive(true);
+            completedTable.UICompletedWorkTable();
         }
     }
 }
