@@ -5,6 +5,13 @@ public class EnemyLookAt : MonoBehaviour
     [SerializeField] Transform player;
     [SerializeField] float rotationSpeed;
 
+    void Start()
+{
+    GameObject myObject = GameObject.FindGameObjectWithTag("MainCamera");
+
+    player = myObject.transform;
+}
+
     void Update()
     {
         Vector3 directionToPlayer = player.position - transform.position;
