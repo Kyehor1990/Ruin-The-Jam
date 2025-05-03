@@ -36,7 +36,7 @@ public class EnemyLoot : MonoBehaviour
         for (int i = 0; i < lootAmount; i++)
         {
             Vector3 randomDirection = Random.insideUnitSphere * lootRadius;
-            randomDirection.y = 0f;
+            randomDirection.y = -0.5f;
             Vector3 spawnPosition = transform.position + randomDirection;
 
             Instantiate(coinPrefab, spawnPosition, Quaternion.identity);

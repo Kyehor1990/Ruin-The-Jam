@@ -3,7 +3,7 @@ using TMPro;
 
 public class PlayerCurrency : MonoBehaviour
 {
-    [SerializeField] int totalCoins = 0;
+    public int totalCoins = 0;
     [SerializeField] TextMeshProUGUI coinText;
 
     void Start()
@@ -27,6 +27,19 @@ public class PlayerCurrency : MonoBehaviour
         if (coinText != null)
         {
             coinText.text = "Coins: " + totalCoins;
+        }
+    }
+
+    public void SpendCoins(int amount)
+    {
+        if (totalCoins >= amount)
+        {
+            totalCoins -= amount;
+            Debug.Log("Coins Spent: " + amount + ". Remaining coins: " + totalCoins);
+        }
+        else
+        {
+            Debug.Log("Not enough coins!");
         }
     }
 }

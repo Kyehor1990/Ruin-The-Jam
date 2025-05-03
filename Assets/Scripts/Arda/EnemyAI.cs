@@ -72,7 +72,6 @@ public class EnemyChase : MonoBehaviour
 
         if (stunnable != null && stunnable.IsStunned())
         {
-            Debug.LogError("Enemy is stunned, cannot attack.");
             agent.isStopped = false;
             isAttacking = false;
             yield break;
