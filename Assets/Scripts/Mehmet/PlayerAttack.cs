@@ -40,11 +40,13 @@ namespace Mehmet
                 // 3. Enemy'e stun uygula
                 if (hit.collider.TryGetComponent(out EnemyStunnable enemy))
                 {
+                    Debug.LogError("Vurdum! " + enemy.gameObject.name);
                     enemy.Stun(2f);
                 }
 
                 if (hit.collider.TryGetComponent(out EnemyWorker enemy2))
                 {
+                    Debug.LogError("Vurdum! " + enemy2.gameObject.name);
                     enemy2.Stun2(2f);
                 }
             }
