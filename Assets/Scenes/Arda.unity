@@ -715,8 +715,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1880236b1609c6449b5b0914232fb84e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 9109589905089036143}
-  rotationSpeed: 20
 --- !u!1 &789918467
 GameObject:
   m_ObjectHideFlags: 0
@@ -798,8 +796,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1880236b1609c6449b5b0914232fb84e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 4979061702700903045}
-  rotationSpeed: 20
 --- !u!114 &790404272
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1320,7 +1316,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb6d511bd6eb56f41b9a7959498d2fde, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectilePrefab: {fileID: 1644231067819352349, guid: 00fcb6b1c8d57b643b5bea680b995f9d, type: 3}
+  projectilePrefab: {fileID: 7731522098218395433, guid: 490ea24703bb89b409371d8844ed9db3, type: 3}
   shootPoint: {fileID: 251741775}
 --- !u!1001 &1566997709
 PrefabInstance:
@@ -1763,11 +1759,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f2f49ce54c0ee2349b83789915d5bd5f, type: 3}
---- !u!4 &4979061702700903045 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 7086986293275350302, guid: f2f49ce54c0ee2349b83789915d5bd5f, type: 3}
-  m_PrefabInstance: {fileID: 4903595352821982691}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &9109589905089036143 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7962274161475011832, guid: f2f49ce54c0ee2349b83789915d5bd5f, type: 3}
