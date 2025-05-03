@@ -14,6 +14,10 @@ namespace Mehmet
         private float currentProgress = 0f;
         private List<EnemyWorker> activeEnemies = new List<EnemyWorker>();
 
+        [SerializeField] CompletedTable completedTable;
+
+        private bool isCompleted = false;
+
         void Update()
         {
             float speedMultiplier = 0f;
@@ -29,6 +33,11 @@ namespace Mehmet
 
             if (progressBar != null)
                 progressBar.value = currentProgress / maxProgress;
+
+            if (currentProgress >= maxProgress && !isCompleted){
+                completedTable.CompletedWorkTable();
+                isCompleted = true;
+            }
         }
 
         public void RegisterEnemy(EnemyWorker enemy)

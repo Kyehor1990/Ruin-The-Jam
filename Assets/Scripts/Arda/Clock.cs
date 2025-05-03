@@ -7,12 +7,14 @@ public class Clock : MonoBehaviour
     [SerializeField] TextMeshProUGUI timeText;
     [SerializeField] float startTime = 8f;
     [SerializeField] float endTime = 20f;
+    [SerializeField] GameObject endingPanel;
     private float currentTime;
     private float timeToComplete = 240f;
     private float timeElapsed = 0f;
 
     void Start()
     {
+        endingPanel.SetActive(false);
         currentTime = startTime;
     }
 
@@ -34,6 +36,8 @@ public class Clock : MonoBehaviour
         else
         {
             timeText.text = "20:00";
+            Time.timeScale = 0f;
+            endingPanel.SetActive(true);
         }
     }
 }
