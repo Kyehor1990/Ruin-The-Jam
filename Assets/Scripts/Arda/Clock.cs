@@ -4,11 +4,11 @@ using TMPro;
 
 public class Clock : MonoBehaviour
 {
-    public TextMeshProUGUI timeText;
-    public float startTime = 8f;
-    public float endTime = 20f;
+    [SerializeField] TextMeshProUGUI timeText;
+    [SerializeField] float startTime = 8f;
+    [SerializeField] float endTime = 20f;
     private float currentTime;
-    private float timeToComplete = 300f;
+    private float timeToComplete = 240f;
     private float timeElapsed = 0f;
 
     void Start()
