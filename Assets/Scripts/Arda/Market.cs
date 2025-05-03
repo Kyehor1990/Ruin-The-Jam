@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -27,13 +28,18 @@ public class Market : MonoBehaviour
             isMarketOpen = true;
             Time.timeScale = 0f;
 
-        }
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
 
-        if (isMarketOpen && Input.GetKeyDown(KeyCode.E))
+        }else if (isMarketOpen && Input.GetKeyDown(KeyCode.E))
         {
             Time.timeScale = 1f;
             marketPanel.SetActive(false);
             isMarketOpen = false;
+
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+
         }
     }
 
@@ -55,7 +61,7 @@ public class Market : MonoBehaviour
 
     void PurchaseItem(Button button)
     {
-        int itemCost = int.Parse(button.GetComponentInChildren<Text>().text);  // Butonun üzerine yazılan fiyatı al
+        int itemCost = int.Parse(button.GetComponentInChildren<TextMeshProUGUI>().text);  // Butonun üzerine yazılan fiyatı al
 
         if (playerCurrency.totalCoins >= itemCost)
         {

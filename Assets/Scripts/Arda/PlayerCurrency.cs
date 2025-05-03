@@ -17,7 +17,6 @@ public class PlayerCurrency : MonoBehaviour
     public void AddCoins(int amount)
     {
         totalCoins += amount;
-        Debug.Log("Coins Added: " + amount + ". Total coins: " + totalCoins);
 
         UpdateCoinUI();
     }
@@ -35,7 +34,7 @@ public class PlayerCurrency : MonoBehaviour
         if (totalCoins >= amount)
         {
             totalCoins -= amount;
-            Debug.Log("Coins Spent: " + amount + ". Remaining coins: " + totalCoins);
+            UpdateCoinUI();
         }
         else
         {
