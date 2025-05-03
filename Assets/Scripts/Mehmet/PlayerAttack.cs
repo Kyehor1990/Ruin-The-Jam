@@ -10,6 +10,8 @@ namespace Mehmet
         public BatAnimator batAnimator; // Animasyon kontrolü
         public Transform cameraTransform; // FPS kamera
 
+        public int stunTime = 2;
+
         private float attackTimer = 0f;
 
         void Update()
@@ -41,15 +43,20 @@ namespace Mehmet
                 if (hit.collider.TryGetComponent(out EnemyStunnable enemy))
                 {
                     Debug.LogError("Vurdum! " + enemy.gameObject.name);
-                    enemy.Stun(2f);
+                    enemy.Stun(stunTime);
                 }
 
                 if (hit.collider.TryGetComponent(out EnemyWorker enemy2))
                 {
                     Debug.LogError("Vurdum! " + enemy2.gameObject.name);
-                    enemy2.Stun2(2f);
+                    enemy2.Stun2(stunTime);
                 }
             }
+        }
+
+        public void BuyStunTime()
+        {
+            stunTime += 1;
         }
     }
 }

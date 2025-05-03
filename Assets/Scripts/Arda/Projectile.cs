@@ -5,8 +5,17 @@ public class Projectile : MonoBehaviour
 {
     public float speed = 10f;
 
+    private PlayerAttack playerAttack;
+
     void Start()
     {
+        GameObject player = GameObject.FindWithTag("Player");
+        if (player != null)
+        {
+                playerAttack = player.GetComponent<PlayerAttack>();
+            }
+
+
         Rigidbody rb = GetComponent<Rigidbody>();
         if (rb != null)
         {
@@ -21,7 +30,7 @@ public class Projectile : MonoBehaviour
             EnemyStunnable enemy = collision.gameObject.GetComponent<EnemyStunnable>();
             if (enemy != null)
             {
-                enemy.Stun(4f);
+                enemy.Stun(playerAttack.stunTime + 2);
                 Destroy(gameObject);
             }
         }
@@ -31,7 +40,7 @@ public class Projectile : MonoBehaviour
             EnemyWorker enemy = collision.gameObject.GetComponent<EnemyWorker>();
             if (enemy != null)
             {
-                enemy.Stun2(4f);
+                enemy.Stun2(playerAttack.stunTime + 2);
                 Destroy(gameObject);
             }
         }
@@ -42,3 +51,5 @@ public class Projectile : MonoBehaviour
         }
     }
 }
+
+
