@@ -22,6 +22,7 @@ public class Projectile : MonoBehaviour
             if (enemy != null)
             {
                 enemy.Stun(4f);
+                Destroy(gameObject);
             }
         }
 
@@ -31,6 +32,7 @@ public class Projectile : MonoBehaviour
             if (enemy != null)
             {
                 enemy.Stun2(4f);
+                Destroy(gameObject);
             }
         }
 
