@@ -43,7 +43,6 @@ namespace Mehmet
                 // 3. Enemy'e stun uygula
                 if (hit.collider.TryGetComponent(out EnemyStunnable enemy))
                 {
-                    Debug.LogError("Vurdum! " + enemy.gameObject.name);
                     enemy.Stun(stunTime);
                 }
 

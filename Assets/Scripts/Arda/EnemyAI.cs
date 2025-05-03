@@ -18,7 +18,6 @@ public class EnemyChase : MonoBehaviour
     private Vector3 StartPosition;
     private float lastAttackTime;
     private bool isAttacking = false; 
-     private bool isInAttackRange = false;
 
     void Start()
     {
