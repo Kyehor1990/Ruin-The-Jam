@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PickUpTrigger : MonoBehaviour
 {
+    public PowerManager powerManager;
     void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
@@ -65,14 +66,13 @@ public class PickUpTrigger : MonoBehaviour
     }
     void DoFunctionOne()
     {
-        Debug.Log("Fonksiyon 1 çağrıldı: Örneğin can ver.");
-        // playerHealth += 10;
+        powerManager.GrantAmmo();
+        Destroy(gameObject);
     }
 
     void DoFunctionTwo()
     {
-        Debug.Log("Fonksiyon 2 çağrıldı: Mermi ver.");
-        // playerAmmo += 5;
+
     }
 
     void DoFunctionThree()
