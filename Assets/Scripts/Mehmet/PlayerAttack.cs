@@ -33,6 +33,7 @@ namespace Mehmet
             // 1. Sopayı salla
             if (batAnimator != null)
                 batAnimator.Swing();
+                
 
             // 2. Ray gönder
             Ray ray = new Ray(cameraTransform.position, cameraTransform.forward);
