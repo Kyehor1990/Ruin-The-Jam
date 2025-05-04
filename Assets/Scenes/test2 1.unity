@@ -6860,6 +6860,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 605848975283852978, guid: f82911891c9b2e645ab0ba6805b3f758, type: 3}
+      propertyPath: beer
+      value: 
+      objectReference: {fileID: 4013984556230442025, guid: 0453f162c008c6e46a1d8ad1b0f99ffb, type: 3}
+    - target: {fileID: 605848975283852978, guid: f82911891c9b2e645ab0ba6805b3f758, type: 3}
       propertyPath: powerManager
       value: 
       objectReference: {fileID: 1967436096}
@@ -7080,6 +7084,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Beer
       objectReference: {fileID: 0}
+    - target: {fileID: 2445070783582911126, guid: 2a9c44ea0a1b1e540af8dc124e2251b4, type: 3}
+      propertyPath: beer
+      value: 
+      objectReference: {fileID: 4013984556230442025, guid: 0453f162c008c6e46a1d8ad1b0f99ffb, type: 3}
     - target: {fileID: 2445070783582911126, guid: 2a9c44ea0a1b1e540af8dc124e2251b4, type: 3}
       propertyPath: powerManager
       value: 
