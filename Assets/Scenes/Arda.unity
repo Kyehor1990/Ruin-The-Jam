@@ -6170,7 +6170,7 @@ PrefabInstance:
       objectReference: {fileID: 7111622128570671220}
     - target: {fileID: 4942104738017925014, guid: ae4558b5d507ff44d9614ca49e61b9a5, type: 3}
       propertyPath: purchaseButtons.Array.size
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4942104738017925014, guid: ae4558b5d507ff44d9614ca49e61b9a5, type: 3}
       propertyPath: purchaseButtons.Array.data[0]
@@ -6254,6 +6254,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 536760320523731060, guid: c720fb5423e04b54da362de243f68361, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 839301739}
+    - target: {fileID: 536760320523731060, guid: c720fb5423e04b54da362de243f68361, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Heal
+      objectReference: {fileID: 0}
+    - target: {fileID: 575916722435393282, guid: c720fb5423e04b54da362de243f68361, type: 3}
+      propertyPath: m_UiScaleMode
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2109197600792848676, guid: c720fb5423e04b54da362de243f68361, type: 3}
       propertyPath: m_Name
       value: Canvas
@@ -6270,6 +6282,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 381579142}
+    - target: {fileID: 4428960587864645475, guid: c720fb5423e04b54da362de243f68361, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: BuyStunTime
+      objectReference: {fileID: 0}
     - target: {fileID: 7673583308041790451, guid: c720fb5423e04b54da362de243f68361, type: 3}
       propertyPath: m_Pivot.x
       value: 0

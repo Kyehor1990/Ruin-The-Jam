@@ -6,9 +6,11 @@ public class PlayerHealth : MonoBehaviour
 {
     public int maxHealth = 100;
     public int currentHealth;
+    private PlayerCurrency playerCurrency;
 
     void Start()
     {
+        playerCurrency = GetComponent<PlayerCurrency>();
         currentHealth = maxHealth;
     }
     public void TakeDamage(int amount)
@@ -24,7 +26,12 @@ public class PlayerHealth : MonoBehaviour
 
     public void Heal()
     {
-        currentHealth = maxHealth;
+        if(playerCurrency.totalCoins >= 5){
+            currentHealth = maxHealth;
+            playerCurrency.SpendCoins(5);
+        }else{
+            Debug.Log("Yeterli para yok!");
+        }
     }
 }
 

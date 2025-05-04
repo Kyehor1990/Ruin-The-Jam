@@ -14,6 +14,13 @@ namespace Mehmet
 
         private float attackTimer = 0f;
 
+        private PlayerCurrency playerCurrency;
+
+        void Start()
+        {
+            playerCurrency = GetComponent<PlayerCurrency>();
+        }
+
         void Update()
         {
             attackTimer += Time.deltaTime;
@@ -56,7 +63,13 @@ namespace Mehmet
 
         public void BuyStunTime()
         {
-            stunTime += 1;
+            if(playerCurrency.totalCoins >= 10){
+                playerCurrency.SpendCoins(10);
+                stunTime += 1;
+
+            }else{
+                Debug.Log("Yeterli para yok!");
+            }
         }
     }
 }
