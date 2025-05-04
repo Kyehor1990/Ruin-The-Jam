@@ -17,6 +17,8 @@ public class Clock : MonoBehaviour
     {
         endingPanel.SetActive(false);
         currentTime = startTime;
+
+        Time.timeScale = 1f;
     }
 
     void Update()
@@ -40,6 +42,8 @@ public class Clock : MonoBehaviour
             Time.timeScale = 0f;
             endingPanel.SetActive(true);
             completedTable.UICompletedWorkTable();
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
         }
     }
 }
