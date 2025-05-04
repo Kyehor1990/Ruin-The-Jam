@@ -48,7 +48,7 @@ namespace Mehmet
 
                 if (hit.collider.TryGetComponent(out EnemyWorker enemy2))
                 {
-                    Debug.LogError("Vurdum! " + enemy2.gameObject.name);
+                   // Debug.LogError("Vurdum! " + enemy2.gameObject.name);
                     enemy2.Stun2(stunTime);
                 }
             }
