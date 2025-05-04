@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Mehmet
 {
@@ -19,6 +20,8 @@ namespace Mehmet
         private CharacterController controller;
         private float stamina;
         private Vector3 velocity;
+
+        public Slider slider;
 
         void Start()
         {
@@ -52,10 +55,13 @@ namespace Mehmet
 
                 controller.Move(moveDir.normalized * speed * Time.deltaTime);
 
-                if (isRunning)
+                if (isRunning){
                     stamina -= staminaDrainRate * Time.deltaTime;
-                else
+                    UpdateStaminaBar();}
+                    
+                else{
                     stamina += staminaRecoveryRate * Time.deltaTime;
+                    UpdateStaminaBar();}
             }
             else
             {
@@ -82,6 +88,12 @@ namespace Mehmet
         public float GetStaminaPercent()
         {
             return stamina / maxStamina;
+        }
+
+        void UpdateStaminaBar()
+        {
+            Debug.Log("Stamina: " + stamina);
+            slider.value = GetStaminaPercent();
         }
     }
 }
