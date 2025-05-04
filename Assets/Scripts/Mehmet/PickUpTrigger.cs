@@ -80,7 +80,8 @@ public class PickUpTrigger : MonoBehaviour
 
     void DoFunctionTwo()
     {
-        
+        powerManager.GrantBomb();
+        Destroy(gameObject);
     }
 
     void DoFunctionThree()
