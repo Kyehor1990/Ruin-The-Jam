@@ -8,6 +8,9 @@ namespace Mehmet
         public GameObject currentProjectile;    // Anlık aktif mermi prefabı
         public float projectileForce = 20f;     // Fırlatma hızı
 
+        public AudioSource audioSource;
+        public AudioClip soundClip;
+
         void Update()
         {
             if (Input.GetMouseButtonDown(1)) // Sağ tık
@@ -27,6 +30,7 @@ namespace Mehmet
             {
                 rb.AddForce(firePoint.forward * projectileForce, ForceMode.Impulse);
             }
+            audioSource.PlayOneShot(soundClip);
         }
 
         // Dışarıdan mermi değiştirmek için (örneğin silah sistemi kullanıyorsan)
