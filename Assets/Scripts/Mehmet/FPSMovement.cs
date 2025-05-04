@@ -34,6 +34,7 @@ namespace Mehmet
             Move();
             ApplyGravity();
             HandleStamina();
+            UpdateStaminaBar();
         }
 
         void Move()
@@ -49,7 +50,7 @@ namespace Mehmet
                 Vector3 moveDir = cameraTransform.forward * inputDirection.z + cameraTransform.right * inputDirection.x;
                 moveDir.y = 0f; // Y ekseni sabit (yukarı-aşağı eğim yok)
 
-                bool isRunning = Input.GetKey(KeyCode.LeftShift) && stamina > 0f;
+                bool isRunning = Input.GetKey(KeyCode.LeftShift) && stamina > 1f;
                 float speed = isRunning ? runSpeed : walkSpeed;
                 
 
@@ -92,7 +93,6 @@ namespace Mehmet
 
         void UpdateStaminaBar()
         {
-            Debug.Log("Stamina: " + stamina);
             slider.value = GetStaminaPercent();
         }
     }
