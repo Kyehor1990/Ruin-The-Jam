@@ -6,8 +6,13 @@ namespace Mehmet
 {
     public class EnemyStunnable : MonoBehaviour
     {
+        [SerializeField] ParticleSystem starEffect;
+        [SerializeField] Transform headTransform;
+
         private bool isStunned = false;
         private NavMeshAgent agent;
+
+        [SerializeField] float stunDuration;
 
         private void Awake()
         {
@@ -16,6 +21,8 @@ namespace Mehmet
             {
                 Debug.LogWarning("NavMeshAgent bu nesnede yok!");
             }
+
+            starEffect.Stop();
         }
 
         public void Stun(float duration)
@@ -30,11 +37,14 @@ namespace Mehmet
         private IEnumerator StunCoroutine(float duration)
         {
             isStunned = true;
+            stunDuration = duration;
 
             if (agent != null)
                 agent.isStopped = true;
 
-            // Buraya animasyon oynatma, renk değiştirme vs. ekleyebilirsin
+            starEffect.transform.position = headTransform.position;
+            starEffect.Play();
+            StartCoroutine(StopStarEffect());
 
             yield return new WaitForSeconds(duration);
 
@@ -48,5 +58,11 @@ namespace Mehmet
         {
             return isStunned;
         }
+
+    IEnumerator StopStarEffect()
+    {
+        yield return new WaitForSeconds(stunDuration);
+        starEffect.Stop();
+    }
     }
 }
