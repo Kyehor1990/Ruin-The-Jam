@@ -161,4 +161,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
-  SphereCollider: {fileID: 0}
+  explosionRadius: 5

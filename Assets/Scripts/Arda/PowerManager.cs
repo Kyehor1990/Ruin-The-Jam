@@ -21,6 +21,11 @@ public class PowerManager : MonoBehaviour
             Instantiate(bombPrefab, shootPoint.position, shootPoint.rotation);
             bombCanShoot = false;
         }
+
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            GrantBomb();
+        }
     }
 
     public void GrantAmmo()
