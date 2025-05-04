@@ -1284,6 +1284,10 @@ PrefabInstance:
       propertyPath: coinText
       value: 
       objectReference: {fileID: 8701141747896548968}
+    - target: {fileID: 2269639225013099396, guid: e6e9a4678fcb5684ca17e0efd512380a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.25
+      objectReference: {fileID: 0}
     - target: {fileID: 3278105948213962201, guid: e6e9a4678fcb5684ca17e0efd512380a, type: 3}
       propertyPath: coinText
       value: 
@@ -1532,6 +1536,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3534575805705460210, guid: 46d222b9c484cd641acc9452374ab594, type: 3}
+      propertyPath: bombPrefab
+      value: 
+      objectReference: {fileID: 8084686980103683150, guid: 52b4c28bf202390478708d9f6fef8080, type: 3}
     - target: {fileID: 3534575805705460210, guid: 46d222b9c484cd641acc9452374ab594, type: 3}
       propertyPath: shootPoint
       value: 

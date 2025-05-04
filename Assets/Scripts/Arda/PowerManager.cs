@@ -4,30 +4,44 @@ using UnityEngine;
 
 public class PowerManager : MonoBehaviour
 {
-    private bool canShoot = false;
+    private bool kissCanShoot = false;
+    private bool bombCanShoot = false;
     public GameObject projectilePrefab;
+    public GameObject bombPrefab;
     public Transform shootPoint;
 
     void Update()
     {
-        if (canShoot && Input.GetMouseButtonDown(1))
+        if (kissCanShoot && Input.GetMouseButtonDown(1))
         {
             ShootProjectile();
-            canShoot = false;
+            kissCanShoot = false;
+        }else if (bombCanShoot && Input.GetMouseButtonDown(1))
+        {
+            Instantiate(bombPrefab, shootPoint.position, shootPoint.rotation);
+            bombCanShoot = false;
         }
 
         if (Input.GetKeyDown(KeyCode.R))
         {
-            GrantAmmo();
+            GrantBomb();
         }
     }
 
     public void GrantAmmo()
     {
-        if (!canShoot)
+        if (!kissCanShoot)
         {
-            canShoot = true;
+            kissCanShoot = true;
             Debug.Log("Mermi atma hakkı verildi!");
+        }
+    }
+
+    public void GrantBomb()
+    {
+        if (bombPrefab != null && shootPoint != null)
+        {
+            bombCanShoot = true;
         }
     }
 
