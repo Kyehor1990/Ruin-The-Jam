@@ -905,9 +905,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   image: {fileID: 209459161}
   newSprite100: {fileID: 0}
-  newSprite80: {fileID: 0}
-  newSprite60: {fileID: 0}
-  newSprite40: {fileID: 0}
+  newSprite80: {fileID: 21300000, guid: c22b3a9b7ff0f7649870063a38525ef1, type: 3}
+  newSprite60: {fileID: 21300000, guid: 6080f7a3b9195ed46ba39890e5e52c13, type: 3}
+  newSprite40: {fileID: 21300000, guid: 78b7d42dc832ebe4c889a880d982cd11, type: 3}
   newSprite20: {fileID: 0}
   playerHealth: {fileID: 839301739}
 --- !u!224 &1241405353 stripped
